@@ -1,0 +1,16 @@
+Icon.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon10.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon11.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon12.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon13.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon14.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon15.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon16.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon17.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon2.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon3.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon4.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon5.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon6.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon7.svg -> title: none, id: none, class: none, data-name: none, text: none
+Icon8.svg -> title: none, id: none, class: none, data-name: none, text: none

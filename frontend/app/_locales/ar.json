@@ -1,0 +1,766 @@
+{
+  "brand": {
+    "name": "شفاء",
+    "tagline": "طريقك للشفاء"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "about": "عنا",
+    "explore": "استكشف",
+    "doctors": "الأطباء",
+    "categories": "التخصصات",
+    "contactUs": "تواصل معنا",
+    "admin": "لوحة الإدارة",
+    "doctorPanel": "لوحة الطبيب",
+    "dashboard": "لوحة التحكم",
+    "myBooking": "مواعيدي",
+    "profile": "حسابي",
+    "login": "تسجيل دخول",
+    "register": "ابدأ الآن",
+    "logout": "تسجيل خروج"
+  },
+  "hero": {
+    "title": "نساعدك تختار",
+    "titleBold": "أفضل الدكاترة",
+    "titleEnd": "وتحجز أقرب دكتور في ثواني",
+    "titleAccent": "بسهولة",
+    "subtitle": "ابحث، قارن، واحجز مواعيدك مع أفضل الأطباء في أي وقت ومن أي مكان.",
+    "searchPlaceholder": "ابحث عن دكتور أو تخصص...",
+    "locationPlaceholder": "أدخل المدينة أو المنطقة",
+    "searchButton": "بحث",
+    "exploreNow": "استكشف الآن",
+    "statsDoctors": "+١,٠٠٠ دكتور",
+    "statsClinics": "+٥٠٠ عيادة",
+    "statsPatients": "+٥٠,٠٠٠ مريض",
+    "imageAlt": "استشارة طبية"
+  },
+  "sections": {
+    "selectSpecialty": "اختر التخصص",
+    "departmentSearchHint": "اختر قسمًا لتحديث نتائج البحث.",
+    "loadingCategories": "جاري تحميل التخصصات...",
+    "noCategoriesAvailable": "لا توجد تخصصات متاحة",
+    "active": "نشط",
+    "youAreHere": "أنت هنا",
+    "lookingForDoctor": "بتدور على أقرب دكتور ليك تثق فيه؟",
+    "topDoctors": "الأطباء الأعلى تقييماً",
+    "popularDoctors": "الأطباء المميزين",
+    "viewAll": "عرض الكل",
+    "viewAllDoctors": "عرض كل الأطباء",
+    "viewAllCategories": "عرض كل التخصصات",
+    "showingOf": "عرض {shown} من {total} دكتور",
+    "noCategoriesFound": "لا توجد تخصصات.",
+    "searchCategories": "البحث في التخصصات"
+  },
+  "stats": {
+    "doctors": "دكتور",
+    "clinics": "عيادة",
+    "patients": "مريض سعيد",
+    "rating": "متوسط التقييم"
+  },
+  "trust": {
+    "description": "شفاء بيساعدك تلاقي أفضل الأطباء القريبين منك، تقارن التقييمات الحقيقية، وتحجز بسهولة بكل ثقة.",
+    "verifiedDoctors": "دكاترة موثقين بتقييمات حقيقية من المرضى",
+    "easyBooking": "حجز سهل بضغطة زرار",
+    "compareDoctors": "قارن بين الأطباء بالتقييم والخبرة والسعر",
+    "findDoctor": "اعثر على دكتور"
+  },
+  "whyChoose": {
+    "title": "ليه تختار شفاء؟",
+    "cards": {
+      "search": {
+        "title": "بحث سهل",
+        "description": "اعثر على الدكتور المناسب بالتخصص أو الموقع أو الاسم"
+      },
+      "reviews": {
+        "title": "تقييمات موثقة",
+        "description": "تقييمات حقيقية من مرضى تقدر تثق فيها"
+      },
+      "booking": {
+        "title": "حجز فوري",
+        "description": "احجز موعدك في ثواني بدون تعقيد"
+      },
+      "secure": {
+        "title": "آمن وخاص",
+        "description": "بياناتك الصحية محمية ومشفرة"
+      }
+    }
+  },
+  "doctor": {
+    "name": "الاسم",
+    "specialist": "متخصص",
+    "availableToday": "متاح اليوم",
+    "nextAvailable": "التالي: {time}",
+    "notAvailable": "غير متاح",
+    "consultation": "الاستشارة",
+    "experience": "الخبرة",
+    "yearsExp": "سنة خبرة",
+    "yearOfExperience": "سنوات الخبرة",
+    "location": "الموقع",
+    "address": "العنوان",
+    "phone": "الهاتف",
+    "phoneNumber": "رقم الهاتف",
+    "fee": "سعر الكشف",
+    "about": "نبذة",
+    "bookNow": "احجز الآن",
+    "bookAppointment": "احجز موعد",
+    "details": "التفاصيل",
+    "reviews": "تقييم",
+    "noReviews": "لا توجد تقييمات بعد",
+    "suggestions": "أطباء مشابهين",
+    "averageRating": "متوسط التقييم",
+    "totalReviews": "{count} تقييم إجمالي",
+    "addYourReview": "أضف تقييمك",
+    "writeFeedback": "اكتب ملاحظتك (اختياري)",
+    "submitReview": "إرسال التقييم",
+    "submitting": "جاري الإرسال...",
+    "noReviewsYet": "لا توجد تقييمات بعد.",
+    "appointmentBooking": "حجز موعد",
+    "appointmentBookingDescription": "اختر تاريخ الموعد والوقت ثم أكمل التأكيد.",
+    "appointmentDate": "تاريخ الموعد",
+    "availableTimeSlots": "الأوقات المتاحة",
+    "noClinicHours": "لا توجد مواعيد في هذا اليوم. جرّب يومًا آخر.",
+    "noAvailableSlots": "لا توجد مواعيد متاحة لهذا اليوم.",
+    "selectSlotFirst": "يرجى اختيار موعد متاح أولًا.",
+    "locationNotAvailable": "الموقع غير متاح",
+    "addressNotProvided": "لم يتم توفير العنوان",
+    "doctorBioMissing": "نبذة الطبيب غير متاحة.",
+    "getDirections": "احصل على الاتجاهات",
+    "recentReview": "تقييم حديث",
+    "noWrittenComment": "لا توجد ملاحظات مكتوبة.",
+    "continueToConfirm": "المتابعة للتأكيد",
+    "confirmAppointment": "تأكيد الموعد",
+    "selectedSlotOn": "لقد اخترت {time} بتاريخ {date}.",
+    "aSlot": "موعد",
+    "notesOptional": "ملاحظات (اختياري)",
+    "booking": "جارٍ الحجز...",
+    "confirmBooking": "تأكيد الحجز"
+  },
+  "categories": {
+    "title": "التخصصات الطبية",
+    "subtitle": "تصفح مجموعتنا الواسعة من التخصصات الطبية",
+    "doctorsCount": "{count} دكتور",
+    "specialtiesAvailable": "{count} تخصص متاح"
+  },
+  "doctorsPage": {
+    "title": "أطباؤنا",
+    "subtitle": "اعثر على الطبيب المناسب لاحتياجاتك",
+    "searchPlaceholder": "ابحث باسم الدكتور...",
+    "all": "الكل",
+    "noResults": "لا يوجد أطباء مطابقين لبحثك",
+    "clearFilters": "مسح الفلاتر",
+    "doctorsAvailable": "{count} دكتور متاح",
+    "total": "الإجمالي",
+    "result": "النتائج",
+    "page": "الصفحة",
+    "filterDoctors": "فلترة الأطباء",
+    "specialty": "التخصص",
+    "allSpecialties": "كل التخصصات",
+    "location": "الموقع",
+    "allLocations": "كل المواقع",
+    "minPrice": "أقل سعر (ج.م)",
+    "maxPrice": "أعلى سعر (ج.م)",
+    "previousPage": "الصفحة السابقة",
+    "nextPage": "الصفحة التالية"
+  },
+  "explore": {
+    "title": "استكشف الرعاية الصحية",
+    "subtitle": "اكتشف الأطباء، التخصصات، واحجز موعدك",
+    "searchPlaceholder": "ابحث عن دكتور أو تخصص...",
+    "browseSpecialty": "تصفح حسب التخصص",
+    "allDoctors": "جميع الأطباء"
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "subtitle": "يسعدنا سماع رأيك. أرسل لنا رسالة وسنرد عليك في أقرب وقت.",
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "subject": "الموضوع",
+    "message": "الرسالة",
+    "namePlaceholder": "أدخل اسمك الكامل",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "subjectPlaceholder": "أدخل الموضوع",
+    "messagePlaceholder": "اكتب رسالتك هنا...",
+    "sendMessage": "إرسال الرسالة",
+    "messageSent": "تم إرسال الرسالة بنجاح! سنرد عليك قريباً.",
+    "contactInfo": "معلومات الاتصال",
+    "address": "123 شارع المركز الطبي، مدينة الصحة",
+    "phone": "+20 (100) 123-4567",
+    "emailAddress": "support@shifaa.com",
+    "workingHours": "ساعات العمل",
+    "weekdays": "الاثنين - الجمعة: 8:00 ص - 8:00 م",
+    "weekends": "السبت - الأحد: 9:00 ص - 5:00 م",
+    "mapComingSoon": "الخريطة قريباً"
+  },
+  "booking": {
+    "title": "مواعيدي",
+    "subtitle": "تابع مواعيدك القادمة وزياراتك السابقة.",
+    "all": "الكل",
+    "upcoming": "القادمة",
+    "past": "السابقة",
+    "noBookings": "لا توجد مواعيد",
+    "cancel": "إلغاء",
+    "confirmTitle": "هل أنت متأكد؟",
+    "cancelConfirm": "هل أنت متأكد من إلغاء هذا الموعد؟",
+    "cancelled": "تم إلغاء الموعد بنجاح",
+    "loginRequired": "يرجى تسجيل الدخول لحجز موعد.",
+    "loginMessage": "تحتاج إلى حساب قبل حجز موعد.",
+    "bookedSuccess": "تم حجز الموعد بنجاح.",
+    "unknownDoctor": "طبيب غير معروف",
+    "dateTime": "التاريخ والوقت",
+    "phone": "رقم الهاتف",
+    "suggestions": "أطباء مشابهين",
+    "experience": "الخبرة",
+    "location": "الموقع",
+    "averageRating": "متوسط التقييم",
+    "totalReviews": "{count} تقييم إجمالي",
+    "writeFeedback": "اكتب ملاحظتك (اختياري)",
+    "submitReview": "إرسال التقييم",
+    "submitting": "جاري الإرسال...",
+    "noReviewsYet": "لا توجد تقييمات بعد.",
+    "appointmentBooking": "حجز موعد",
+    "appointmentBookingDescription": "اختر تاريخ الموعد والوقت ثم أكمل التأكيد.",
+    "appointmentDate": "تاريخ الموعد",
+    "availableTimeSlots": "الأوقات المتاحة",
+    "noClinicHours": "لا توجد مواعيد في هذا اليوم. جرّب يومًا آخر.",
+    "noAvailableSlots": "لا توجد مواعيد متاحة لهذا اليوم.",
+    "selectSlotFirst": "يرجى اختيار موعد متاح أولًا.",
+    "locationNotAvailable": "الموقع غير متاح",
+    "addressNotProvided": "لم يتم توفير العنوان",
+    "doctorBioMissing": "نبذة الطبيب غير متاحة.",
+    "appointmentBookingCta": "حجز موعد",
+    "getDirections": "احصل على الاتجاهات",
+    "addYourReview": "أضف تقييمك",
+    "recentReview": "تقييم حديث",
+    "patient": "مريض",
+    "noWrittenComment": "لا توجد ملاحظات مكتوبة.",
+    "notes": "ملاحظات (اختياري)",
+    "notesPlaceholder": "أي طلبات خاصة أو ملاحظات طبية...",
+    "status": "الحالة",
+    "statusConfirmed": "مؤكد",
+    "statusPending": "قيد الانتظار",
+    "statusCanceled": "ملغي",
+    "statusCompleted": "مكتمل",
+    "reschedule": "إعادة جدولة",
+    "rescheduleSuccess": "تم إعادة جدولة الموعد بنجاح",
+    "cancelReason": "سبب الإلغاء",
+    "cancelReasonPlaceholder": "لماذا تريد الإلغاء؟ (اختياري)",
+    "phoneRequired": "رقم الهاتف مطلوب",
+    "viewDoctor": "عرض الطبيب"
+  },
+  "details": {
+    "moreSpecialists": "مزيد من المتخصصين في {category}",
+    "moreSpecialistsFallback": "مزيد من المتخصصين في هذا التخصص",
+    "noSimilarDoctors": "لا يوجد أطباء مشابهون."
+  },
+  "reviews": {
+    "title": "تقييمات المرضى",
+    "leaveReview": "أضف تقييمك",
+    "noReviews": "لا توجد تقييمات بعد. كن أول من يشارك تجربته!",
+    "loginToReview": "سجّل دخولك لإضافة تقييم",
+    "commentPlaceholder": "شارك تجربتك مع هذا الطبيب... (اختياري)",
+    "submitReview": "إرسال التقييم",
+    "submitting": "جاري الإرسال...",
+    "submitted": "تم إرسال التقييم بنجاح! ⭐",
+    "alreadyReviewed": "لقد قمت بتقييم هذا الطبيب مسبقاً",
+    "error": "حدث خطأ، حاول مرة أخرى",
+    "thankYou": "شكراً لتقييمك! ✓",
+    "guest": "زائر",
+    "anonymous": "مستخدم مجهول",
+    "recently": "مؤخراً",
+    "noComment": "لا يوجد تعليق.",
+    "ratings": {
+      "1": "ضعيف",
+      "2": "مقبول",
+      "3": "جيد",
+      "4": "جيد جداً",
+      "5": "ممتاز"
+    }
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "createAccount": "إنشاء حساب",
+    "loginSubtitle": "مرحبًا بعودتك. سجّل الدخول لمتابعة رحلتك الصحية.",
+    "accountTypeTitle": "كيف تود استخدام المنصة؟",
+    "accountTypeSubtitle": "اختر نوع الحساب لتخصيص تجربتك الطبية.",
+    "patientAccountTitle": "مريض",
+    "patientAccountDescription": "احجز المواعيد وأدر تاريخك الطبي وتواصل مع المتخصصين.",
+    "doctorAccountTitle": "طبيب",
+    "doctorAccountDescription": "أدر عيادتك، نظّم المواعيد، ووسّع شبكتك الطبية.",
+    "chooseAnotherRole": "اختر دورًا آخر",
+    "continue": "متابعة",
+    "backToLogin": "العودة لتسجيل الدخول",
+    "registerSubtitle": "اختر نوع الحساب لبدء الإعداد.",
+    "patientFormTitle": "إنشاء حساب مريض",
+    "patientFormSubtitle": "أدخل بياناتك لبدء رحلتك الصحية المخصصة.",
+    "doctorFormTitle": "انضم إلى الشبكة المميزة",
+    "doctorFormSubtitle": "أكمل ملفك المهني لبدء استقبال الاستشارات المختارة.",
+    "professionalIdentity": "الهوية المهنية",
+    "practiceDetails": "تفاصيل العيادة",
+    "credentials": "بيانات الدخول",
+    "optional": "اختياري",
+    "emailOrPhone": "البريد الإلكتروني أو رقم الهاتف",
+    "selectSpecialty": "اختر التخصص",
+    "aboutPractice": "نبذة عن العيادة",
+    "clinicName": "اسم العيادة",
+    "clinicAddress": "عنوان العيادة",
+    "yearsOfExperience": "سنوات الخبرة",
+    "consultationFee": "سعر الكشف ($)",
+    "orContinueWith": "أو تابع باستخدام",
+    "acceptTerms": "أوافق على",
+    "termsOfService": "شروط الاستخدام",
+    "clinicalGuidelines": "الإرشادات الطبية",
+    "alreadyHaveAccount": "لديك حساب بالفعل؟",
+    "noAccount": "ليس لديك حساب؟",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "name": "الاسم الكامل",
+    "fullNamePlaceholder": "أدخل اسمك الكامل",
+    "emailPlaceholder": "name@example.com",
+    "phonePlaceholder": "+1 (555) 000-0000",
+    "cityArea": "المدينة / المنطقة",
+    "cityAreaPlaceholder": "لترشيحات محلية أقرب",
+    "profileImageLabel": "الصورة الشخصية",
+    "clinicAddressPlaceholder": "90210 Medical Plaza, Ste 400",
+    "aboutPracticePlaceholder": "اكتب ملخصًا مهنيًا قصيرًا...",
+    "haveAccount": "لديك حساب بالفعل؟",
+    "signUp": "سجّل الآن",
+    "signIn": "دخول",
+    "sendResetLink": "إرسال رابط إعادة التعيين",
+    "resetCodeSent": "تم إرسال رمز إعادة التعيين بنجاح.",
+    "verifyCode": "تحقق من الكود",
+    "verifyContinue": "تحقق ومتابعة",
+    "newPassword": "كلمة مرور جديدة",
+    "enterCode": "أدخل رمز التحقق",
+    "resendCode": "إعادة إرسال الرمز",
+    "passwordRuleMin": "8 أحرف أو أكثر",
+    "passwordRuleSpecial": "رمز خاص واحد",
+    "forgotSubtitle": "أدخل بريدك الإلكتروني وسنرسل لك رمز إعادة التعيين.",
+    "verifySubtitle": "أدخل الرمز الذي أرسلناه إلى بريدك للمتابعة.",
+    "resetSubtitle": "أنشئ كلمة مرور جديدة لحسابك.",
+    "loginSecurity": "بياناتك محمية بتشفير آمن.",
+    "continueWithGoogle": "جوجل",
+    "continueWithApple": "آبل"
+  },
+  "profile": {
+    "title": "حسابي",
+    "photo": "صورة الحساب",
+    "changePhoto": "تغيير الصورة",
+    "photoUpdated": "تم تحديث صورة الحساب",
+    "editProfile": "تعديل الحساب",
+    "editProfileDescription": "حدّث بياناتك الشخصية ثم احفظ التغييرات.",
+    "save": "حفظ التغييرات",
+    "name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "accountCreated": "تم إنشاء الحساب",
+    "notSet": "غير محدد",
+    "role": "الدور",
+    "user": "مستخدم",
+    "viewBookings": "عرض المواعيد"
+  },
+  "dashboard": {
+    "title": "لوحة المريض",
+    "subtitle": "تابع مواعيدك واطّلع على آخر الإشعارات بسهولة.",
+    "calendarTitle": "تقويم المواعيد",
+    "totalAppointments": "إجمالي المواعيد",
+    "upcomingAppointments": "المواعيد القادمة",
+    "canceledAppointments": "المواعيد الملغاة",
+    "unreadNotifications": "الإشعارات غير المقروءة",
+    "quickActions": "إجراءات سريعة",
+    "upcomingAppointmentsTitle": "المواعيد القادمة",
+    "viewAllAppointments": "عرض كل المواعيد",
+    "noUpcomingAppointments": "لا توجد مواعيد قادمة.",
+    "actions": {
+      "bookAppointment": "احجز موعد",
+      "myBookings": "مواعيدي",
+      "editProfile": "تعديل الحساب"
+    }
+  },
+  "calendar": {
+    "today": "اليوم",
+    "day": "يوم",
+    "week": "أسبوع",
+    "month": "شهر"
+  },
+  "doctorDashboard": {
+    "title": "لوحة الطبيب",
+    "subtitle": "تابع ضغط العمل اليومي وحالة المواعيد ونشاط المرضى.",
+    "stats": {
+      "totalAppointments": "إجمالي المواعيد",
+      "todayAppointments": "مواعيد اليوم",
+      "upcomingAppointments": "المواعيد القادمة",
+      "completedAppointments": "المكتملة",
+      "canceledAppointments": "الملغاة",
+      "uniquePatients": "المرضى المميزون"
+    },
+    "sidebar": {
+      "dashboard": "لوحة التحكم",
+      "schedule": "الجدول",
+      "bookings": "الحجوزات",
+      "patients": "المرضى",
+      "reviews": "التقييمات",
+      "profile": "حسابي",
+      "notifications": "الإشعارات",
+      "logout": "تسجيل الخروج"
+    },
+    "sections": {
+      "overview": "نظرة عامة",
+      "recentAppointments": "أحدث المواعيد",
+      "upcomingAppointments": "المواعيد القادمة",
+      "patients": "المرضى",
+      "statusBreakdown": "توزيع الحالات"
+    },
+    "table": {
+      "patient": "المريض",
+      "date": "التاريخ",
+      "time": "الوقت",
+      "status": "الحالة",
+      "actions": "الإجراءات",
+      "noAppointments": "لا توجد مواعيد",
+      "confirm": "تأكيد",
+      "complete": "إكمال",
+      "cancel": "إلغاء"
+    },
+    "status": {
+      "pending": "قيد الانتظار",
+      "confirmed": "مؤكد",
+      "canceled": "ملغي",
+      "completed": "مكتمل"
+    }
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "subtitle": "تابع آخر التحديثات وتنبيهات الحجز.",
+    "markAsRead": "تحديد كمقروء",
+    "markAllAsRead": "تحديد جميع الإشعارات كمقروءة",
+    "noNotifications": "لا توجد إشعارات حالياً."
+  },
+  "payment": {
+    "title": "إتمام الدفع",
+    "summary": "ملخص الموعد",
+    "amount": "المبلغ",
+    "currency": "جنيه",
+    "payNow": "ادفع الآن",
+    "processing": "جاري المعالجة...",
+    "success": "تم الدفع بنجاح!",
+    "failed": "فشل الدفع",
+    "skip": "الدفع في العيادة",
+    "paid": "مدفوع",
+    "unpaid": "غير مدفوع",
+    "refunded": "مسترد",
+    "status": "حالة الدفع"
+  },
+  "admin": {
+    "title": "لوحة تحكم الإدارة",
+    "sidebar": {
+      "dashboard": "لوحة التحكم",
+      "doctors": "الأطباء",
+      "categories": "التخصصات",
+      "appointments": "المواعيد",
+      "patients": "المرضى",
+      "reports": "التقارير"
+    },
+    "stats": {
+      "totalDoctors": "إجمالي الأطباء",
+      "totalAppointments": "إجمالي المواعيد",
+      "totalPatients": "إجمالي المرضى",
+      "avgRating": "متوسط التقييم"
+    },
+    "doctors": {
+      "addDoctor": "إضافة طبيب",
+      "editDoctor": "تعديل طبيب",
+      "deleteConfirm": "حذف هذا الطبيب؟",
+      "deleted": "تم حذف الطبيب بنجاح"
+    },
+    "categories": {
+      "addCategory": "إضافة تخصص",
+      "editCategory": "تعديل تخصص",
+      "deleteConfirm": "حذف هذا التخصص؟",
+      "deleted": "تم حذف التخصص بنجاح"
+    },
+    "appointments": {
+      "changeStatus": "تغيير الحالة",
+      "statusUpdated": "تم تحديث الحالة بنجاح"
+    },
+    "patients": {
+      "searchPlaceholder": "بحث بالاسم أو البريد",
+      "joinDate": "تاريخ الانضمام",
+      "appointmentsCount": "المواعيد"
+    },
+    "reports": {
+      "appointmentsOverTime": "المواعيد عبر الزمن",
+      "appointmentsByStatus": "المواعيد حسب الحالة",
+      "topDoctors": "أكثر الأطباء طلباً",
+      "newPatients": "المرضى الجدد شهرياً",
+      "last6Months": "آخر 6 أشهر"
+    },
+    "table": {
+      "name": "الاسم",
+      "email": "البريد",
+      "phone": "الهاتف",
+      "date": "التاريخ",
+      "status": "الحالة",
+      "actions": "الإجراءات",
+      "noData": "لا توجد بيانات",
+      "previous": "السابق",
+      "next": "التالي"
+    }
+  },
+  "footer": {
+    "description": "احجز مع أفضل المتخصصين، نظّم مواعيدك، واحتفظ بكل رعايتك الصحية في مكان واحد.",
+    "exploreDoctors": "تصفح الأطباء",
+    "createAccount": "إنشاء حساب",
+    "quickLinks": "روابط سريعة",
+    "forPatients": "للمرضى",
+    "forDoctors": "للأطباء",
+    "support": "الدعم",
+    "newsletterTitle": "ابقى على اطلاع",
+    "newsletterPlaceholder": "أدخل بريدك الإلكتروني",
+    "subscribe": "اشترك",
+    "resetPassword": "استعادة كلمة المرور",
+    "patients": {
+      "searchDoctors": "ابحث عن الأطباء",
+      "bookAppointment": "احجز موعد",
+      "myAppointments": "مواعيدي",
+      "reviews": "التقييمات"
+    },
+    "doctors": {
+      "join": "انضم إلى شفاء",
+      "dashboard": "لوحة الطبيب (قريباً)"
+    },
+    "supportLinks": {
+      "faq": "الأسئلة الشائعة",
+      "helpCenter": "مركز المساعدة",
+      "privacy": "سياسة الخصوصية"
+    },
+    "copyright": "© {year} شفاء. جميع الحقوق محفوظة."
+  },
+  "breadcrumbs": {
+    "about": "عنا",
+    "faq": "الأسئلة الشائعة",
+    "terms": "الشروط والخصوصية",
+    "contact": "تواصل معنا",
+    "doctors": "الأطباء",
+    "categories": "التخصصات"
+  },
+  "about": {
+    "title": "عن شفاء",
+    "subtitle": "نحن نبني منصة رعاية صحية رقمية موثوقة تجعل الوصول للعلاج أسهل وأكثر إنسانية.",
+    "storyTitle": "قصتنا",
+    "storyText": "بدأت شفاء برسالة واضحة: تسهيل رحلة المريض من البحث عن الطبيب المناسب وحتى إدارة المواعيد بثقة.",
+    "valuesTitle": "قيمنا",
+    "values": {
+      "trust": "الثقة",
+      "trustDesc": "أطباء موثقون وتقييمات مرضى حقيقية وشفافة.",
+      "innovation": "الابتكار",
+      "innovationDesc": "حلول حديثة لتسهيل قرارات الرعاية الصحية.",
+      "patientFirst": "المريض أولاً",
+      "patientFirstDesc": "كل ميزة مصممة لراحة المريض ووضوح التجربة."
+    },
+    "partnersTitle": "فريقنا وشركاؤنا",
+    "partnersText": "نتعاون مع أطباء وعيادات وشركاء تقنيين لتقديم تجربة رعاية موثوقة.",
+    "ctaTitle": "انضم لآلاف المرضى على شفاء",
+    "ctaButton": "ابدأ الآن"
+  },
+  "faq": {
+    "title": "الأسئلة الشائعة",
+    "subtitle": "كل ما تحتاج معرفته عن الحجز والتقييمات وإدارة الحساب.",
+    "items": {
+      "q1": "كيف أحجز موعد؟",
+      "a1": "اختر الطبيب وحدد التاريخ والوقت ثم أكد الحجز من صفحة تفاصيل الطبيب.",
+      "q2": "هل يمكنني إلغاء الموعد؟",
+      "a2": "نعم، من صفحة مواعيدي يمكنك إلغاء أي موعد قادم بسهولة.",
+      "q3": "كيف يتم حساب تقييم الأطباء؟",
+      "a3": "يتم احتساب التقييم من مراجعات المرضى الموثقة بعد الزيارة.",
+      "q4": "هل بياناتي آمنة؟",
+      "a4": "نستخدم وسائل حماية وتوثيق آمنة للحفاظ على بياناتك الشخصية.",
+      "q5": "كيف أضيف تقييم؟",
+      "a5": "بعد تسجيل الدخول، افتح صفحة الطبيب وأضف التقييم والتعليق.",
+      "q6": "ما وسائل الدفع المتاحة؟",
+      "a6": "حالياً الحجز بنظام التأكيد، وسيتم إضافة خيارات الدفع قريباً.",
+      "q7": "كيف أتواصل مع الدعم؟",
+      "a7": "يمكنك التواصل عبر صفحة تواصل معنا وسيتم الرد في أقرب وقت.",
+      "q8": "هل أستطيع الحجز لشخص آخر؟",
+      "a8": "نعم، يمكنك الحجز لأحد أفراد الأسرة مع إدخال البيانات المناسبة."
+    }
+  },
+  "terms": {
+    "title": "الشروط والخصوصية",
+    "subtitle": "يرجى مراجعة سياساتنا قبل استخدام منصة شفاء.",
+    "tosTitle": "شروط الاستخدام",
+    "tosText": "باستخدام شفاء فإنك توافق على إدخال بيانات صحيحة واستخدام المنصة بشكل مسؤول.",
+    "privacyTitle": "سياسة الخصوصية",
+    "privacyText": "نستخدم بياناتك فقط لتقديم الخدمات الأساسية مثل الحجز والإشعارات.",
+    "cookieTitle": "سياسة ملفات الارتباط",
+    "cookieText": "نستخدم ملفات الارتباط لتحسين الأداء وحفظ اللغة وتخصيص التجربة."
+  },
+  "emptyState": {
+    "noDoctorsTitle": "لا يوجد أطباء مطابقون",
+    "noDoctorsText": "جرّب تعديل البحث أو الفلاتر للعثور على أطباء متاحين.",
+    "noBookingsTitle": "لا توجد مواعيد بعد",
+    "noBookingsText": "ليس لديك مواعيد قادمة أو سابقة حالياً.",
+    "noReviewsTitle": "كن أول من يقيّم",
+    "noReviewsText": "شارك تجربتك لمساعدة المرضى الآخرين في اتخاذ القرار."
+  },
+  "header": {
+    "openMenu": "فتح قائمة التنقل"
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "subtitle": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "goHome": "العودة للرئيسية"
+  },
+  "error": {
+    "badge": "حدث خطأ ما",
+    "title": "تعذر تحميل هذه الصفحة.",
+    "subtitle": "يرجى المحاولة مرة أخرى بعد قليل."
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ ما",
+    "retry": "حاول مرة أخرى",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "next": "التالي",
+    "search": "بحث",
+    "noResults": "لا توجد نتائج",
+    "required": "هذا الحقل مطلوب",
+    "switchLanguage": "تبديل اللغة"
+  },
+  "premiumHome": {
+    "hero": {
+      "badge": "حجز طبي سريع",
+      "titleLine1": "اعثر على الطبيب المناسب،",
+      "titleHighlight": "واحجز أسرع.",
+      "subtitle": "ابحث حسب التخصص أو الموقع أو التوفر وشاهد أفضل النتائج فورًا قبل الحجز.",
+      "specialtyLabel": "التخصص",
+      "allSpecialties": "كل التخصصات",
+      "locationLabel": "الموقع",
+      "locationPlaceholder": "المدينة أو المنطقة",
+      "searchDoctors": "ابحث عن طبيب",
+      "verifiedDoctors": "أطباء موثقون",
+      "sameDayBooking": "حجز في نفس اليوم",
+      "featuredDoctorAlt": "طبيب مميز",
+      "certifiedSpecialists": "متخصصون معتمدون",
+      "verifiedConsultations": "أكثر من 200,000 استشارة موثقة"
+    },
+    "journey": {
+      "title": "رحلة رعاية متكاملة",
+      "subtitle": "اختبر رعاية طبية تراعي وقتك وأهدافك الصحية من خلال تجربة منظمة من ثلاث خطوات.",
+      "steps": {
+        "1": {
+          "title": "اعثر على الطبيب المناسب",
+          "description": "ابحث من خلال شبكتنا المختارة من المتخصصين المعتمدين بما يناسب احتياجاتك."
+        },
+        "2": {
+          "title": "حجز دقيق",
+          "description": "اختر وقتًا يناسب نمط حياتك مع توفر لحظي بدون انتظار."
+        },
+        "3": {
+          "title": "عن بُعد أو حضوريًا",
+          "description": "استشر الطبيب عبر الطب عن بُعد أو زر الأقسام السريرية المميزة حضورياً."
+        }
+      }
+    },
+    "stats": {
+      "specialists": "متخصصون مختارون",
+      "consults": "استشارات ناجحة",
+      "satisfaction": "رضا المرضى",
+      "departments": "أقسام طبية"
+    },
+    "testimonials": {
+      "title": "أصوات الثقة",
+      "subtitle": "كلينيكال كيوريتور لا يتعلق فقط بالعثور على طبيب؛ بل بدقة واهتمام رحلة المريض كاملة.",
+      "items": {
+        "1": {
+          "name": "جوليان بروكس",
+          "role": "رائد أعمال ومريض",
+          "date": "زارنا في مارس 2026",
+          "review": "حجز سهل ومتخصصون استمعوا لكل التفاصيل قبل الاستشارة."
+        },
+        "2": {
+          "name": "منى السيد",
+          "role": "أم",
+          "date": "زارنا في فبراير 2026",
+          "review": "مسار الحجز كان سريعًا، والطبيب كان واضحًا، وخطة المتابعة كانت مرتبة بعناية."
+        },
+        "3": {
+          "name": "خالد سمير",
+          "role": "مهندس برمجيات",
+          "date": "زارنا في يناير 2026",
+          "review": "تجربة سلسة من البحث إلى الحجز. أعجبني هدوء الواجهة والوصول السريع إلى أفضل الأطباء."
+        }
+      }
+    },
+    "cta": {
+      "badge": "للأطباء",
+      "titleLine1": "هل أنت طبيب؟",
+      "titleLine2": "انضم إلى شبكتنا المميزة.",
+      "subtitle": "نحن نبحث دائمًا عن متخصصين متميزين للانضمام إلى مجتمعنا الطبي. قدّم لمرضاك تجربة رقمية مميزة.",
+      "benefits": {
+        "1": "وسّع قاعدة مرضاك",
+        "2": "منصة موثوقة",
+        "3": "أدوات حديثة للطبيب"
+      },
+      "primaryButton": "انضم إلينا",
+      "secondaryButton": "تعرف على الأدوات الطبية"
+    },
+    "specialists": {
+      "title": "متخصصون متميزون",
+      "previous": "السابق",
+      "next": "التالي",
+      "viewAllDoctors": "عرض كل الأطباء"
+    },
+    "departments": {
+      "title": "الأقسام",
+      "description": "استمتع بخبرة طبية عالمية في جميع التخصصات مع دقة واهتمام فائقين.",
+      "viewAll": "عرض كل التخصصات",
+      "loading": "جاري تحميل الأقسام...",
+      "empty": "لا توجد أقسام متاحة",
+      "specialistsAvailable": "أخصائيون متاحون",
+      "cardiology": "أمراض القلب",
+      "pediatrics": "طب الأطفال",
+      "neurology": "طب الأعصاب",
+      "psychiatry": "الطب النفسي",
+      "dentistry": "طب الأسنان",
+      "dermatology": "الأمراض الجلدية"
+    },
+    "doctors": {
+      "fallbackName": "الدكتور {index}",
+      "fallbackSpecialty": "متخصص {index}",
+      "fallbackLocation": "المركز الطبي المميز {index}",
+      "specialistCare": "رعاية تخصصية",
+      "premiumCenter": "المركز الطبي المميز",
+      "availableToday": "متاح اليوم",
+      "nextAvailable": "أقرب موعد: {time}",
+      "slot": "{time}"
+    }
+  },
+  "clinic": {
+    "workingHoursTitle": "مواعيد العمل",
+    "closed": "مغلق",
+    "openNow": "مفتوح الآن",
+    "ctaTitle": "احجز موعدك الآن",
+    "ctaSubtitle": "لاقي الدكتور المناسب واحجز زيارتك في ثواني.",
+    "ctaButton": "تصفح الأطباء",
+    "whatsapp": "واتساب",
+    "whatsappDesc": "تواصل معنا مباشرة",
+    "days": {
+      "saturday": "السبت",
+      "sunday": "الأحد",
+      "monday": "الاثنين",
+      "tuesday": "الثلاثاء",
+      "wednesday": "الأربعاء",
+      "thursday": "الخميس",
+      "friday": "الجمعة"
+    }
+  }
+}
