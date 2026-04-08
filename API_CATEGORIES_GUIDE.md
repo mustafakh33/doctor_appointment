@@ -48,6 +48,7 @@ Content-Type: multipart/form-data
 ```
 
 Body fields:
+
 - name (required)
 - name_ar (required)
 - icon (optional image file)
@@ -67,7 +68,7 @@ DELETE /api/v1/admin/categories/:id
 
 ## Frontend Helpers
 
-Main helpers are in frontend/app/_utils/Api.js:
+Main helpers are in frontend/app/\_utils/Api.js:
 
 ```js
 const categories = await getCategories();

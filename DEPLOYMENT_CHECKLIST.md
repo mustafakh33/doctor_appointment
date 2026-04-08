@@ -24,6 +24,7 @@ STRIPE_WEBHOOK_SECRET=<optional>
 ```
 
 6. Verify:
+
 - https://<render-service>.onrender.com/
 - https://<render-service>.onrender.com/api/v1/doctors
 
