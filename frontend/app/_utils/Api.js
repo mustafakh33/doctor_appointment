@@ -10,7 +10,26 @@ const parseResponseData = (response) => {
 
 const toAbsoluteAssetUrl = (value) => {
   if (!value || typeof value !== "string") return "";
-  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  if (value.startsWith("http://") || value.startsWith("https://")) {
+    try {
+      const parsed = new URL(value);
+      const isLocalHost =
+        parsed.hostname === "localhost" || parsed.hostname === "127.0.0.1";
+
+      if (!isLocalHost) return value;
+
+      // Some seeded records store frontend-local absolute URLs.
+      // Convert them to a portable path so they resolve on Vercel.
+      if (parsed.pathname.startsWith("/assets/")) {
+        return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+      }
+
+      // For backend-hosted local URLs (/uploads...), map to configured backend origin.
+      return `${ASSET_BASE_URL}${parsed.pathname}${parsed.search}${parsed.hash}`;
+    } catch {
+      return value;
+    }
+  }
   if (value.startsWith("/")) return `${ASSET_BASE_URL}${value}`;
   return `${ASSET_BASE_URL}/${value}`;
 };
