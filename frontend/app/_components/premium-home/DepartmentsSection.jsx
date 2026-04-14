@@ -11,8 +11,10 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/app/_context/LanguageContext";
 import { localizeCategory } from "@/app/_utils/localize";
+import CategoryCardSkeleton from "./CategoryCardSkeleton";
 
 const fallbackIcons = [HeartPulse, Baby, Brain, Shield, Activity, Stethoscope];
+const SKELETON_COUNT = 8;
 
 function DepartmentsSection({
   departments = [],
@@ -59,24 +61,12 @@ function DepartmentsSection({
           </Link>
         </div>
 
-        <div className="mt-8 flex gap-4 overflow-x-auto pb-4">
+        <div className="mt-8">
           {loading ? (
-            <div className="flex w-full items-center justify-center py-12">
-              <div className="inline-flex flex-col items-center gap-2">
-                <div
-                  className="h-8 w-8 animate-spin rounded-full border-4"
-                  style={{
-                    borderColor: "var(--color-border)",
-                    borderTopColor: "var(--color-primary)",
-                  }}
-                />
-                <p style={{ color: "var(--color-text-secondary)" }}>
-                  {t(
-                    "premiumHome.departments.loading",
-                    "Loading departments...",
-                  )}
-                </p>
-              </div>
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+              {Array.from({ length: SKELETON_COUNT }).map((_, index) => (
+                <CategoryCardSkeleton key={`category-skeleton-${index}`} />
+              ))}
             </div>
           ) : error ? (
             <div
@@ -100,81 +90,82 @@ function DepartmentsSection({
               </p>
             </div>
           ) : (
-            departments.map((department, index) => {
-              const Icon = fallbackIcons[index % fallbackIcons.length];
-              const departmentId =
-                department?.documentId || department?.id || "";
-              const href = departmentId
-                ? `/doctors?categoryId=${encodeURIComponent(departmentId)}`
-                : `/doctors?specialty=${encodeURIComponent(department.name || "")}`;
-              const categoryName = localizeCategory(department, locale);
-              const hasImage = department?.icon?.url || department?.image?.url;
-              const doctorsCount = Number(
-                department?.doctorsCount || department?.doctors?.length || 0,
-              );
+            <div className="grid grid-cols-2 gap-4 transition-opacity duration-500 md:grid-cols-3 lg:grid-cols-4">
+              {departments.map((department, index) => {
+                const Icon = fallbackIcons[index % fallbackIcons.length];
+                const departmentId =
+                  department?.documentId || department?.id || "";
+                const href = departmentId
+                  ? `/doctors?categoryId=${encodeURIComponent(departmentId)}`
+                  : `/doctors?specialty=${encodeURIComponent(department.name || "")}`;
+                const categoryName = localizeCategory(department, locale);
+                const hasImage = department?.icon?.url || department?.image?.url;
+                const doctorsCount = Number(
+                  department?.doctorsCount || department?.doctors?.length || 0,
+                );
 
-              return (
-                <Link
-                  key={department.id || department.documentId || index}
-                  href={href}
-                  className="group block shrink-0"
-                  style={{ width: "220px" }}
-                >
-                  <div
-                    className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1"
-                    style={{
-                      background: "var(--color-surface-1)",
-                      boxShadow: "var(--shadow-card)",
-                    }}
+                return (
+                  <Link
+                    key={department.id || department.documentId || index}
+                    href={href}
+                    className="group block"
                   >
-                    {/* Image or Icon Background */}
                     <div
-                      className="flex h-32 w-full items-center justify-center"
+                      className="relative h-full overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1"
                       style={{
-                        background:
-                          "linear-gradient(135deg, var(--color-primary-light), var(--color-secondary-light))",
+                        background: "var(--color-surface-1)",
+                        boxShadow: "var(--shadow-card)",
                       }}
                     >
-                      {hasImage ? (
-                        <div className="relative h-20 w-20 overflow-hidden rounded-full">
-                          <Image
-                            src={department.icon?.url || department.image?.url}
-                            alt={categoryName}
-                            fill
-                            className="object-contain"
+                      {/* Image or Icon Background */}
+                      <div
+                        className="flex h-32 w-full items-center justify-center"
+                        style={{
+                          background:
+                            "linear-gradient(135deg, var(--color-primary-light), var(--color-secondary-light))",
+                        }}
+                      >
+                        {hasImage ? (
+                          <div className="relative h-20 w-20 overflow-hidden rounded-full">
+                            <Image
+                              src={department.icon?.url || department.image?.url}
+                              alt={categoryName}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <Icon
+                            className="h-16 w-16"
+                            style={{ color: "var(--color-primary)" }}
                           />
-                        </div>
-                      ) : (
-                        <Icon
-                          className="h-16 w-16"
-                          style={{ color: "var(--color-primary)" }}
-                        />
-                      )}
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-4">
-                      <h3
-                        className="font-semibold leading-tight"
-                        style={{ color: "var(--color-text-primary)" }}
-                      >
-                        {categoryName}
-                      </h3>
-                      <p
-                        className="mt-1 text-xs leading-5"
-                        style={{ color: "var(--color-text-secondary)" }}
-                      >
-                        {doctorsCount}{" "}
-                        {t(
-                          "premiumHome.departments.specialistsAvailable",
-                          "Specialists Available",
                         )}
-                      </p>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-4">
+                        <h3
+                          className="font-semibold leading-tight"
+                          style={{ color: "var(--color-text-primary)" }}
+                        >
+                          {categoryName}
+                        </h3>
+                        <p
+                          className="mt-1 text-xs leading-5"
+                          style={{ color: "var(--color-text-secondary)" }}
+                        >
+                          {doctorsCount}{" "}
+                          {t(
+                            "premiumHome.departments.specialistsAvailable",
+                            "Specialists Available",
+                          )}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })
+                  </Link>
+                );
+              })}
+            </div>
           )}
         </div>
       </div>

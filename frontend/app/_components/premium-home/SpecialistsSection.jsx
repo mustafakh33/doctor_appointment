@@ -1,12 +1,13 @@
 import { useLanguage } from "@/app/_context/LanguageContext";
-import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import DoctorCard from "@/app/_components/DoctorCard";
+import DoctorCardSkeleton from "./DoctorCardSkeleton";
 
-function SpecialistsSection({ doctors }) {
+const SKELETON_COUNT = 8;
+
+function SpecialistsSection({ doctors = [], loading = false }) {
   const { t } = useLanguage();
-  const sliderRef = useRef(null);
 
   const normalizedDoctors = (doctors || [])
     .map((doctor, index) => ({
@@ -59,19 +60,24 @@ function SpecialistsSection({ doctors }) {
           </Link>
         </div>
 
-        <div
-          ref={sliderRef}
-          className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2"
-        >
-          {normalizedDoctors.map((doctor, index) => (
-            <div
-              key={doctor.id || index}
-              className="w-full shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)]"
-            >
-              <DoctorCard doctor={doctor} />
-            </div>
-          ))}
-        </div>
+        {loading ? (
+          <div className="mt-8 grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
+            {Array.from({ length: SKELETON_COUNT }).map((_, index) => (
+              <DoctorCardSkeleton key={`doctor-skeleton-${index}`} />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-8 grid grid-cols-2 gap-5 transition-opacity duration-500 md:grid-cols-3 lg:grid-cols-4">
+            {normalizedDoctors.map((doctor, index) => (
+              <div
+                key={doctor.id || index}
+                className="h-full"
+              >
+                <DoctorCard doctor={doctor} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

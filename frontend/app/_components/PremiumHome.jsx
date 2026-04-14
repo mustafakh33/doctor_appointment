@@ -162,7 +162,7 @@ function PremiumHome() {
         error={error}
       />
       <JourneySection />
-      <SpecialistsSection doctors={highlightedDoctors} />
+      <SpecialistsSection doctors={highlightedDoctors} loading={loading} />
       <StatsBand />
       <TestimonialsSection />
       <DoctorCtaSection />
