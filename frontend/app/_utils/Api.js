@@ -103,10 +103,24 @@ const normalizeAppointment = (appointment) => {
 const normalizeReview = (review) => {
   if (!review) return null;
 
+  const normalizedUser =
+    review.user && typeof review.user === "object"
+      ? {
+        ...review.user,
+        profileImage: normalizeMedia(review.user.profileImage),
+      }
+      : review.user;
+
+  const normalizedUserProfileImage = normalizeMedia(
+    review.userProfileImage || normalizedUser?.profileImage?.url,
+  );
+
   return {
     ...review,
     id: review._id || review.id,
     documentId: review._id || review.documentId || review.id,
+    user: normalizedUser,
+    userProfileImage: normalizedUserProfileImage.url,
     doctor:
       review.doctor && typeof review.doctor === "object"
         ? normalizeDoctor(review.doctor)

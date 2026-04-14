@@ -19,6 +19,42 @@ const throwBadRequest = (message) => {
     throw error;
 };
 
+const buildAbsoluteUserImageUrl = (value) => {
+    if (!value || typeof value !== "string") return "";
+    if (value.startsWith("http://") || value.startsWith("https://")) {
+        return value;
+    }
+
+    const baseUrl = String(process.env.BASE_URL || "").replace(/\/$/, "");
+    if (!baseUrl) return value;
+
+    if (value.startsWith("/")) {
+        return `${baseUrl}${value}`;
+    }
+
+    if (value.startsWith("uploads/")) {
+        return `${baseUrl}/${value}`;
+    }
+
+    return `${baseUrl}/uploads/users/${value}`;
+};
+
+const normalizeReviewResponse = (reviewDoc) => {
+    if (!reviewDoc) return reviewDoc;
+
+    const review = reviewDoc.toObject ? reviewDoc.toObject() : reviewDoc;
+    const populatedUserImage = buildAbsoluteUserImageUrl(review?.user?.profileImage || "");
+    const fallbackUserImage = buildAbsoluteUserImageUrl(review?.userProfileImage || "");
+    const normalizedUserImage = populatedUserImage || fallbackUserImage;
+
+    if (review.user && typeof review.user === "object") {
+        review.user.profileImage = normalizedUserImage;
+    }
+
+    review.userProfileImage = normalizedUserImage;
+    return review;
+};
+
 const createReview = asyncHandler(async (req, res) => {
     if (!req.user) {
         throwBadRequest("Authentication is required to create a review");
@@ -58,7 +94,7 @@ const createReview = asyncHandler(async (req, res) => {
             .populate("doctor", "name")
             .populate("user", "name name_ar profileImage");
 
-        res.status(201).json({ success: true, data: populatedReview });
+        res.status(201).json({ success: true, data: normalizeReviewResponse(populatedReview) });
     } catch (error) {
         if (error && error.code === 11000) {
             res.status(400).json({
@@ -80,10 +116,15 @@ const getReviewsByDoctor = asyncHandler(async (req, res) => {
     }
 
     const reviews = await Review.find({ doctor: doctorId })
+        .populate("doctor", "name")
         .populate("user", "name name_ar profileImage")
         .sort({ createdAt: -1 });
 
-    res.status(200).json({ success: true, count: reviews.length, data: reviews });
+    res.status(200).json({
+        success: true,
+        count: reviews.length,
+        data: reviews.map((review) => normalizeReviewResponse(review)),
+    });
 });
 
 const getAllReviews = asyncHandler(async (req, res) => {
@@ -91,7 +132,11 @@ const getAllReviews = asyncHandler(async (req, res) => {
         .populate("doctor", "name")
         .populate("user", "name name_ar profileImage");
 
-    res.status(200).json({ success: true, count: reviews.length, data: reviews });
+    res.status(200).json({
+        success: true,
+        count: reviews.length,
+        data: reviews.map((review) => normalizeReviewResponse(review)),
+    });
 });
 
 const getReviewById = asyncHandler(async (req, res) => {
@@ -109,7 +154,7 @@ const getReviewById = asyncHandler(async (req, res) => {
         throwNotFound();
     }
 
-    res.status(200).json({ success: true, data: review });
+    res.status(200).json({ success: true, data: normalizeReviewResponse(review) });
 });
 
 const updateReview = asyncHandler(async (req, res) => {
@@ -136,7 +181,7 @@ const updateReview = asyncHandler(async (req, res) => {
         .populate("doctor", "name")
         .populate("user", "name name_ar profileImage");
 
-    res.status(200).json({ success: true, data: populatedReview });
+    res.status(200).json({ success: true, data: normalizeReviewResponse(populatedReview) });
 });
 
 const deleteReview = asyncHandler(async (req, res) => {

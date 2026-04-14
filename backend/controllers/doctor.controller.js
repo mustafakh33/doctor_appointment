@@ -15,6 +15,42 @@ const throwNotFound = (resource = RESOURCE_NAME) => {
     throw error;
 };
 
+const buildAbsoluteUserImageUrl = (value) => {
+    if (!value || typeof value !== "string") return "";
+    if (value.startsWith("http://") || value.startsWith("https://")) {
+        return value;
+    }
+
+    const baseUrl = String(process.env.BASE_URL || "").replace(/\/$/, "");
+    if (!baseUrl) return value;
+
+    if (value.startsWith("/")) {
+        return `${baseUrl}${value}`;
+    }
+
+    if (value.startsWith("uploads/")) {
+        return `${baseUrl}/${value}`;
+    }
+
+    return `${baseUrl}/uploads/users/${value}`;
+};
+
+const normalizeReviewResponse = (reviewDoc) => {
+    if (!reviewDoc) return reviewDoc;
+
+    const review = reviewDoc.toObject ? reviewDoc.toObject() : reviewDoc;
+    const populatedUserImage = buildAbsoluteUserImageUrl(review?.user?.profileImage || "");
+    const fallbackUserImage = buildAbsoluteUserImageUrl(review?.userProfileImage || "");
+    const normalizedUserImage = populatedUserImage || fallbackUserImage;
+
+    if (review.user && typeof review.user === "object") {
+        review.user.profileImage = normalizedUserImage;
+    }
+
+    review.userProfileImage = normalizedUserImage;
+    return review;
+};
+
 const normalizeDoctorResponse = (doctorDoc) => {
     if (!doctorDoc) return doctorDoc;
     const doctor = doctorDoc.toObject ? doctorDoc.toObject() : doctorDoc;
@@ -73,11 +109,17 @@ const getDoctorById = asyncHandler(async (req, res) => {
         throwNotFound();
     }
 
-    const reviews = await Review.find({ doctor: id }).sort({ createdAt: -1 });
+    const reviews = await Review.find({ doctor: id })
+        .populate("user", "name name_ar profileImage")
+        .populate("doctor", "name")
+        .sort({ createdAt: -1 });
 
     res.status(200).json({
         success: true,
-        data: { ...normalizeDoctorResponse(doctor), reviews },
+        data: {
+            ...normalizeDoctorResponse(doctor),
+            reviews: reviews.map((review) => normalizeReviewResponse(review)),
+        },
     });
 });
 
