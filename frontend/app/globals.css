@@ -346,6 +346,15 @@ html[dir="rtl"] {
   animation: skeletonShimmer 1.35s ease-in-out infinite;
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes slideInRight {
   from {
     transform: translateX(100%);

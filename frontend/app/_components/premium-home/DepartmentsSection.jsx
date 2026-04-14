@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Activity,
+  ChevronLeft,
+  ChevronRight,
   Baby,
   Brain,
   HeartPulse,
@@ -12,6 +14,7 @@ import {
 import { useLanguage } from "@/app/_context/LanguageContext";
 import { localizeCategory } from "@/app/_utils/localize";
 import CategoryCardSkeleton from "./CategoryCardSkeleton";
+import useHorizontalScroll from "./useHorizontalScroll";
 
 const fallbackIcons = [HeartPulse, Baby, Brain, Shield, Activity, Stethoscope];
 const SKELETON_COUNT = 8;
@@ -22,6 +25,8 @@ function DepartmentsSection({
   error = null,
 }) {
   const { locale, t } = useLanguage();
+  const { containerRef, canScrollPrev, canScrollNext, scrollByDirection } =
+    useHorizontalScroll();
 
   return (
     <section
@@ -61,11 +66,53 @@ function DepartmentsSection({
           </Link>
         </div>
 
-        <div className="mt-8">
+        <div className="relative mt-8">
+          <button
+            type="button"
+            onClick={() => scrollByDirection("prev")}
+            disabled={!canScrollPrev}
+            aria-label={t("common.previous", "Previous")}
+            className="absolute top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full p-2 shadow-lg transition md:inline-flex"
+            style={{
+              insetInlineStart: "-14px",
+              background: "var(--color-surface-1)",
+              color: "var(--color-text-primary)",
+              opacity: canScrollPrev ? 1 : 0.45,
+              pointerEvents: canScrollPrev ? "auto" : "none",
+            }}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => scrollByDirection("next")}
+            disabled={!canScrollNext}
+            aria-label={t("common.next", "Next")}
+            className="absolute top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full p-2 shadow-lg transition md:inline-flex"
+            style={{
+              insetInlineEnd: "-14px",
+              background: "var(--color-surface-1)",
+              color: "var(--color-text-primary)",
+              opacity: canScrollNext ? 1 : 0.45,
+              pointerEvents: canScrollNext ? "auto" : "none",
+            }}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+
           {loading ? (
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+            <div
+              ref={containerRef}
+              className="hide-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2"
+            >
               {Array.from({ length: SKELETON_COUNT }).map((_, index) => (
-                <CategoryCardSkeleton key={`category-skeleton-${index}`} />
+                <div
+                  key={`category-skeleton-${index}`}
+                  className="w-56 shrink-0 snap-start md:w-60"
+                >
+                  <CategoryCardSkeleton />
+                </div>
               ))}
             </div>
           ) : error ? (
@@ -90,7 +137,10 @@ function DepartmentsSection({
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-4 transition-opacity duration-500 md:grid-cols-3 lg:grid-cols-4">
+            <div
+              ref={containerRef}
+              className="hide-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 transition-opacity duration-500"
+            >
               {departments.map((department, index) => {
                 const Icon = fallbackIcons[index % fallbackIcons.length];
                 const departmentId =
@@ -109,7 +159,7 @@ function DepartmentsSection({
                   <Link
                     key={department.id || department.documentId || index}
                     href={href}
-                    className="group block"
+                    className="group block w-56 shrink-0 snap-start md:w-60"
                   >
                     <div
                       className="relative h-full overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1"
