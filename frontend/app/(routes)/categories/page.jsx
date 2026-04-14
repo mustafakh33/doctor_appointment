@@ -13,8 +13,8 @@ import {
 } from "lucide-react";
 import { getCategories } from "@/app/_utils/Api";
 import { useLanguage } from "@/app/_context/LanguageContext";
-import { localizeCategory } from "@/app/_utils/localize";
 import Loading from "@/app/_components/loading";
+import CategoryCard from "./_components/CategoryCard";
 
 const iconSet = [HeartPulse, Baby, Brain, Shield, Activity, Stethoscope];
 
@@ -133,99 +133,16 @@ function CategoriesPage() {
         <section className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {categories.map((cat, index) => {
             const Icon = iconSet[index % iconSet.length];
-            const hasImage = cat?.icon?.url || cat?.image?.url;
-            const imageUrl = cat?.icon?.url || cat?.image?.url;
 
             return (
-              <Link
+              <CategoryCard
                 key={cat.id || cat.documentId}
-                href={`/search/${cat.name}`}
-                className="group block"
-              >
-                <article
-                  className="relative overflow-hidden rounded-3xl border transition-all duration-300 hover:-translate-y-1"
-                  style={{
-                    borderColor: "var(--color-border)",
-                    boxShadow: "var(--shadow-card)",
-                    background: "white",
-                  }}
-                >
-                  {/* Image Section */}
-                  <div
-                    className="flex h-40 w-full items-center justify-center"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, var(--color-primary-light), var(--color-secondary-light))",
-                    }}
-                  >
-                    {hasImage ? (
-                      <div className="relative h-20 w-20 overflow-hidden rounded-full">
-                        <Image
-                          src={imageUrl}
-                          alt={localizeCategory(cat, locale)}
-                          fill
-                          className="object-contain transition-transform duration-300 group-hover:scale-110"
-                        />
-                      </div>
-                    ) : (
-                      <Icon
-                        className="h-16 w-16"
-                        style={{ color: "var(--color-primary)" }}
-                      />
-                    )}
-                  </div>
-
-                  {/* Content Section */}
-                  <div className="p-5">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3
-                          className="text-lg font-bold"
-                          style={{ color: "var(--color-text-primary)" }}
-                        >
-                          {localizeCategory(cat, locale)}
-                        </h3>
-                        <p
-                          className="mt-1 text-sm leading-6"
-                          style={{ color: "var(--color-text-secondary)" }}
-                        >
-                          {t("categories.doctorsCount", undefined, {
-                            count: cat.doctors?.length || 0,
-                          })}
-                        </p>
-                      </div>
-
-                      <div
-                        className="shrink-0 rounded-full px-3 py-1 text-xs font-semibold"
-                        style={{
-                          background: "var(--color-secondary-light)",
-                          color: "var(--color-secondary-dark)",
-                        }}
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-                    </div>
-
-                    <div
-                      className="mt-5 flex items-center justify-between border-t pt-4"
-                      style={{ borderColor: "var(--color-border)" }}
-                    >
-                      <span
-                        className="text-xs font-semibold uppercase tracking-[0.16em]"
-                        style={{ color: "var(--color-text-secondary)" }}
-                      >
-                        Explore
-                      </span>
-                      <span
-                        className="text-sm font-semibold transition-colors group-hover:opacity-80"
-                        style={{ color: "var(--color-primary)" }}
-                      >
-                        View Doctors →
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              </Link>
+                category={cat}
+                index={index}
+                icon={Icon}
+                locale={locale}
+                t={t}
+              />
             );
           })}
         </section>
