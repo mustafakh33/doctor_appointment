@@ -3,6 +3,7 @@ const asyncHandler = require("express-async-handler");
 const Doctor = require("../models/doctor.model");
 const Category = require("../models/category.model");
 const Review = require("../models/review.model");
+const { normalizeReviewListResponse } = require("../utils/normalizeReview");
 
 const RESOURCE_NAME = "Doctor";
 const CATEGORY_PROJECTION = "name name_en name_ar image icon";
@@ -13,42 +14,6 @@ const throwNotFound = (resource = RESOURCE_NAME) => {
     const error = new Error(`${resource} not found`);
     error.statusCode = 404;
     throw error;
-};
-
-const buildAbsoluteUserImageUrl = (value) => {
-    if (!value || typeof value !== "string") return "";
-    if (value.startsWith("http://") || value.startsWith("https://")) {
-        return value;
-    }
-
-    const baseUrl = String(process.env.BASE_URL || "").replace(/\/$/, "");
-    if (!baseUrl) return value;
-
-    if (value.startsWith("/")) {
-        return `${baseUrl}${value}`;
-    }
-
-    if (value.startsWith("uploads/")) {
-        return `${baseUrl}/${value}`;
-    }
-
-    return `${baseUrl}/uploads/users/${value}`;
-};
-
-const normalizeReviewResponse = (reviewDoc) => {
-    if (!reviewDoc) return reviewDoc;
-
-    const review = reviewDoc.toObject ? reviewDoc.toObject() : reviewDoc;
-    const populatedUserImage = buildAbsoluteUserImageUrl(review?.user?.profileImage || "");
-    const fallbackUserImage = buildAbsoluteUserImageUrl(review?.userProfileImage || "");
-    const normalizedUserImage = populatedUserImage || fallbackUserImage;
-
-    if (review.user && typeof review.user === "object") {
-        review.user.profileImage = normalizedUserImage;
-    }
-
-    review.userProfileImage = normalizedUserImage;
-    return review;
 };
 
 const normalizeDoctorResponse = (doctorDoc) => {
@@ -118,7 +83,7 @@ const getDoctorById = asyncHandler(async (req, res) => {
         success: true,
         data: {
             ...normalizeDoctorResponse(doctor),
-            reviews: reviews.map((review) => normalizeReviewResponse(review)),
+            reviews: normalizeReviewListResponse(reviews),
         },
     });
 });

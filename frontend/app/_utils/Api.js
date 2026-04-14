@@ -3,6 +3,8 @@
 const ASSET_BASE_URL =
   process.env.NEXT_PUBLIC_ASSET_BASE_URL || "http://localhost:8000";
 const AUTH_STORAGE_KEY = "doctor_appointment_auth";
+const DEFAULT_MEDIA_FALLBACK_URL = "/assets/img/user/per1.jpg";
+const DEFAULT_REVIEW_AVATAR_URL = "/assets/img/user/per1.jpg";
 
 const parseResponseData = (response) => {
   return response?.data?.data ?? response?.data?.user ?? response?.data;
@@ -34,13 +36,23 @@ const toAbsoluteAssetUrl = (value) => {
   return `${ASSET_BASE_URL}/${value}`;
 };
 
-const normalizeMedia = (value) => {
-  if (!value) return { url: "" };
-  if (typeof value === "string") return { url: toAbsoluteAssetUrl(value) };
-  if (typeof value === "object" && value.url) {
-    return { ...value, url: toAbsoluteAssetUrl(value.url) };
+const normalizeMedia = (value, fallbackUrl = DEFAULT_MEDIA_FALLBACK_URL) => {
+  const safeFallback =
+    typeof fallbackUrl === "string" && fallbackUrl.trim()
+      ? fallbackUrl.trim()
+      : DEFAULT_MEDIA_FALLBACK_URL;
+
+  if (typeof value === "string") {
+    const normalized = toAbsoluteAssetUrl(value.trim());
+    return { url: normalized || safeFallback };
   }
-  return { url: "" };
+
+  if (value && typeof value === "object" && typeof value.url === "string") {
+    const normalized = toAbsoluteAssetUrl(value.url.trim());
+    return { ...value, url: normalized || safeFallback };
+  }
+
+  return { url: safeFallback };
 };
 
 const normalizeCategory = (category) => {
@@ -103,16 +115,23 @@ const normalizeAppointment = (appointment) => {
 const normalizeReview = (review) => {
   if (!review) return null;
 
+  const rawUserProfileImage =
+    typeof review.userProfileImage === "string" ? review.userProfileImage : "";
+
   const normalizedUser =
     review.user && typeof review.user === "object"
       ? {
         ...review.user,
-        profileImage: normalizeMedia(review.user.profileImage),
+        profileImage: normalizeMedia(
+          review.user.profileImage,
+          DEFAULT_REVIEW_AVATAR_URL,
+        ),
       }
       : review.user;
 
   const normalizedUserProfileImage = normalizeMedia(
-    review.userProfileImage || normalizedUser?.profileImage?.url,
+    rawUserProfileImage || normalizedUser?.profileImage?.url,
+    DEFAULT_REVIEW_AVATAR_URL,
   );
 
   return {

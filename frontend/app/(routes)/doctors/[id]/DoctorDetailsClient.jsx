@@ -34,6 +34,8 @@ import {
 } from "@/app/_utils/Api";
 import { useLanguage } from "@/app/_context/LanguageContext";
 
+const REVIEW_AVATAR_FALLBACK_URL = "/assets/img/user/per1.jpg";
+
 const getNextDateString = () => {
   const now = new Date();
   now.setDate(now.getDate() + 1);
@@ -845,7 +847,7 @@ function DoctorDetailsClient({ doctor, schedule }) {
                   review?.user?.profileImage?.url ||
                   review?.user?.profileImage ||
                   review?.userProfileImage ||
-                  "";
+                  REVIEW_AVATAR_FALLBACK_URL;
 
                 return (
                   <article
@@ -869,6 +871,10 @@ function DoctorDetailsClient({ doctor, schedule }) {
                               width={40}
                               height={40}
                               className="h-full w-full object-cover"
+                              onError={(event) => {
+                                event.currentTarget.src =
+                                  REVIEW_AVATAR_FALLBACK_URL;
+                              }}
                             />
                           ) : (
                             getInitials(reviewerName)

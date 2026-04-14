@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const asyncHandler = require("express-async-handler");
 const Review = require("../models/review.model");
 const Appointment = require("../models/appointment.model");
+const {
+    normalizeReviewResponse,
+    normalizeReviewListResponse,
+} = require("../utils/normalizeReview");
 
 const RESOURCE_NAME = "Review";
 
@@ -17,42 +21,6 @@ const throwBadRequest = (message) => {
     const error = new Error(message);
     error.statusCode = 400;
     throw error;
-};
-
-const buildAbsoluteUserImageUrl = (value) => {
-    if (!value || typeof value !== "string") return "";
-    if (value.startsWith("http://") || value.startsWith("https://")) {
-        return value;
-    }
-
-    const baseUrl = String(process.env.BASE_URL || "").replace(/\/$/, "");
-    if (!baseUrl) return value;
-
-    if (value.startsWith("/")) {
-        return `${baseUrl}${value}`;
-    }
-
-    if (value.startsWith("uploads/")) {
-        return `${baseUrl}/${value}`;
-    }
-
-    return `${baseUrl}/uploads/users/${value}`;
-};
-
-const normalizeReviewResponse = (reviewDoc) => {
-    if (!reviewDoc) return reviewDoc;
-
-    const review = reviewDoc.toObject ? reviewDoc.toObject() : reviewDoc;
-    const populatedUserImage = buildAbsoluteUserImageUrl(review?.user?.profileImage || "");
-    const fallbackUserImage = buildAbsoluteUserImageUrl(review?.userProfileImage || "");
-    const normalizedUserImage = populatedUserImage || fallbackUserImage;
-
-    if (review.user && typeof review.user === "object") {
-        review.user.profileImage = normalizedUserImage;
-    }
-
-    review.userProfileImage = normalizedUserImage;
-    return review;
 };
 
 const createReview = asyncHandler(async (req, res) => {
@@ -123,7 +91,7 @@ const getReviewsByDoctor = asyncHandler(async (req, res) => {
     res.status(200).json({
         success: true,
         count: reviews.length,
-        data: reviews.map((review) => normalizeReviewResponse(review)),
+        data: normalizeReviewListResponse(reviews),
     });
 });
 
@@ -135,7 +103,7 @@ const getAllReviews = asyncHandler(async (req, res) => {
     res.status(200).json({
         success: true,
         count: reviews.length,
-        data: reviews.map((review) => normalizeReviewResponse(review)),
+        data: normalizeReviewListResponse(reviews),
     });
 });
 
