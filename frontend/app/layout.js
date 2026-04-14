@@ -32,7 +32,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${manrope.variable} ${cairo.variable} font-sans antialiased`}>
+      <body
+        className={`${inter.variable} ${manrope.variable} ${cairo.variable} flex min-h-screen flex-col font-sans antialiased`}
+      >
         <Providers>
           <RoleAccessGate>{children}</RoleAccessGate>
           <ScrollToTop />

@@ -78,13 +78,21 @@ function RoleAccessGate({ children }) {
     shouldRedirectToRoleHome ||
     shouldRedirectToAllowedSubPath
   ) {
-    return <Loading />;
+    return (
+      <>
+        {shouldShowPublicChrome ? <Header /> : null}
+        <main className="flex-1 transition-all duration-300">
+          <Loading />
+        </main>
+        {shouldShowPublicChrome ? <Footer /> : null}
+      </>
+    );
   }
 
   return (
     <>
       {shouldShowPublicChrome ? <Header /> : null}
-      {children}
+      <main className="flex-1 transition-all duration-300">{children}</main>
       {shouldShowPublicChrome ? <Footer /> : null}
     </>
   );
