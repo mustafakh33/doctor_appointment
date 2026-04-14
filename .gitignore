@@ -1,0 +1,27 @@
+# Ignore personal / temp files
+CV.tex
+FIXED.md
+WEBSITE_FULL_DESCRIPTION_*
+
+# Logs
+logs
+*.log
+
+# Node modules
+node_modules/
+
+# Env files (مهم جدًا)
+.env
+.env.local
+.env.development
+.env.production
+backend/config.env
+
+# Build files
+.next/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
