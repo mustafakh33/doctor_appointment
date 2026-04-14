@@ -69,10 +69,7 @@ function SpecialistsSection({ doctors = [], loading = false }) {
         ) : (
           <div className="mt-8 grid grid-cols-2 gap-5 transition-opacity duration-500 md:grid-cols-3 lg:grid-cols-4">
             {normalizedDoctors.map((doctor, index) => (
-              <div
-                key={doctor.id || index}
-                className="h-full"
-              >
+              <div key={doctor.id || index} className="h-full">
                 <DoctorCard doctor={doctor} />
               </div>
             ))}

@@ -325,7 +325,11 @@ html[dir="rtl"] {
 .skeleton-shimmer {
   position: relative;
   overflow: hidden;
-  background: color-mix(in srgb, var(--color-surface-2) 86%, var(--color-border));
+  background: color-mix(
+    in srgb,
+    var(--color-surface-2) 86%,
+    var(--color-border)
+  );
 }
 
 .skeleton-shimmer::after {

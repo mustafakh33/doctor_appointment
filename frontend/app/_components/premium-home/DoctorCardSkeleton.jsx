@@ -10,7 +10,10 @@ function DoctorCardSkeleton() {
         boxShadow: "var(--shadow-card)",
       }}
     >
-      <div className="relative w-full overflow-hidden" style={{ background: "var(--color-surface-1)" }}>
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ background: "var(--color-surface-1)" }}
+      >
         <SkeletonBlock className="aspect-21/13 w-full rounded-none" />
         <SkeletonBlock className="absolute inset-e-3 top-3 h-6 w-12 rounded-full" />
       </div>

@@ -99,7 +99,8 @@ function DepartmentsSection({
                   ? `/doctors?categoryId=${encodeURIComponent(departmentId)}`
                   : `/doctors?specialty=${encodeURIComponent(department.name || "")}`;
                 const categoryName = localizeCategory(department, locale);
-                const hasImage = department?.icon?.url || department?.image?.url;
+                const hasImage =
+                  department?.icon?.url || department?.image?.url;
                 const doctorsCount = Number(
                   department?.doctorsCount || department?.doctors?.length || 0,
                 );
@@ -128,7 +129,9 @@ function DepartmentsSection({
                         {hasImage ? (
                           <div className="relative h-20 w-20 overflow-hidden rounded-full">
                             <Image
-                              src={department.icon?.url || department.image?.url}
+                              src={
+                                department.icon?.url || department.image?.url
+                              }
                               alt={categoryName}
                               fill
                               className="object-contain"
